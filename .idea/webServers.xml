@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="08188424-8874-4f88-bd05-68a76f460881" name="host202">
+        <fileTransfer rootFolder="/home/cyq" accessType="SFTP" host="mdm.zyr17.cn" port="30202" sshConfigId="e1e4f35a-13d3-4b8c-bdfd-d7c7feb11050" sshConfig="cyq@mdm.zyr17.cn:30202 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
