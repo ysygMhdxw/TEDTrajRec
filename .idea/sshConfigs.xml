@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="SshConfigs">
-    <configs>
-      <sshConfig host="mdm.zyr17.cn" id="e1e4f35a-13d3-4b8c-bdfd-d7c7feb11050" keyPath="$USER_HOME$/.ssh/id_rsa" port="30202" nameFormat="DESCRIPTIVE" username="cyq" useOpenSSHConfig="true" />
-    </configs>
-  </component>
-</project>

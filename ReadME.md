@@ -46,8 +46,8 @@ Note that:
 #### Training and Testing
 
 ```
-nohup python -u multi_main.py --city Chengdu --keep_ratio 0.125 --hid_dim 256 --dis_prob_mask_flag \
-    --pro_features_flag --tandem_fea_flag --dgl_time_flg --decay_flag > chengdu_8.txt &
+nohup python -u multi_main.py --city Porto --keep_ratio 0.125 --hid_dim 256 --dis_prob_mask_flag \
+    --pro_features_flag --tandem_fea_flag --dgl_time_flg --decay_flag > porto_8.txt &
 ```
 
 #### File information
