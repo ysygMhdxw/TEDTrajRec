@@ -426,8 +426,8 @@ def collate_fn(data):
 
 if __name__ == "__main__":
     city = "Shanghai"
-    traj_root = f"/nas/user/cyq/TrajectoryRecovery/train_data/{city}/"
-    map_root = f"/nas/user/cyq/TrajectoryRecovery/roadnet/{city}/"
+    traj_root = f"./train_data/{city}/"
+    map_root = f"./roadnet/{city}/"
 
     from module.map import RoadNetworkMapFull
     from utils.mbr import MBR

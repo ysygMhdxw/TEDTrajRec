@@ -1,14 +1,3 @@
-"""
-run example:
-conda activate stgcn
-nohup python -u multi_main.py --city Chengdu --keep_ratio 0.125 --dis_prob_mask_flag --pro_features_flag \
-      --tandem_fea_flag --decay_flag --bounding_prob_mask_flag > chengdu_8.txt
-CUDA_VISIBLE_DEVICES=1 nohup python -u multi_main.py --city Chengdu --keep_ratio 0.125 --hid_dim 256 --dis_prob_mask_flag --pro_features_flag \
-      --tandem_fea_flag --decay_flag > chengdu_8.txt &
-nohup python -u multi_main.py --city Porto --keep_ratio 0.125 --dis_prob_mask_flag --pro_features_flag \
-      --tandem_fea_flag --decay_flag  > porto_8.txt &
-version: Transformer_v2_6
-"""
 
 import time
 from tqdm import tqdm
@@ -126,7 +115,7 @@ if __name__ == '__main__':
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     city = opts.city
-    map_root = f"/nas/user/cyq/TrajectoryRecovery/roadnet/{city}/"
+    map_root = f"./roadnet/{city}/"
 
     if city == "Shanghai":
         zone_range = [31.17491, 121.439492, 31.305073, 121.507001]
@@ -245,13 +234,13 @@ if __name__ == '__main__':
     subg = get_sub_graphs(rn, max_deps=args.max_depths)
 
     print('Preparing data...')
-    traj_root = f"/nas/user/cyq/TrajectoryRecovery/train_data_final/{city}/"
+    traj_root = f"./{city}/"
     if args.tandem_fea_flag:
         fea_flag = True
     else:
         fea_flag = False
 
-    model_save_root = f'/nas/user/cyq/TrajectoryRecovery/final/Transformer_MGPS2Vec/{city}/'
+    model_save_root = f'./checkpoint/{city}/'
     if not os.path.exists(model_save_root):
         os.makedirs(model_save_root)
 
@@ -325,10 +314,6 @@ if __name__ == '__main__':
     model = Seq2SeqMulti(enc, dec, device, args).to(device)
     model.apply(init_weights)  # learn how to init weights
 
-    # if args.load_pretrained_flag:
-    #     model = torch.load(args.model_old_path + 'val-best-model.pt')
-    # # if wandb.run.resumed:
-    # #     model = torch.load(args.model_old_path + 'val-best-model.pt')
     if args.load_pretrained_flag:
         # checkpoint = torch.load(args.model_old_path + 'val-best-model.pt')
         model.load_state_dict(torch.load(args.model_old_path + 'val-best-model.pt'))
@@ -470,8 +455,7 @@ if __name__ == '__main__':
             break
 
     model.load_state_dict(torch.load(model_save_path + 'val-best-model.pt'))
-    verbose_root = f'/nas/user/cyq/TrajectoryRecovery/final/Transformer_MGPS2Vec/{city}/'
-    # verbose_root = f'/home/cyq/Transformer_MGPS2Vec/{city}/'
+    verbose_root = f'./checkpoint/{city}/'
     output = None
     if args.verbose_flag:
         if not os.path.exists(verbose_root):
