@@ -1,7 +1,8 @@
 ## TedTrajRec
 
 ### About
-Source Code for  [Learning Spatio-Temporal Dynamics for Trajectory Recovery via Time-Aware Transformer](https://arxiv.org/abs/2505.13857)
+Source Code for [Learning Spatio-Temporal Dynamics for Trajectory Recovery via Time-Aware Transformer](https://arxiv.org/abs/2505.13857) 
+Accepted as a journal paper in IEEE Transactions on Intelligent Transportation Systems (T-ITS)
 
 ### Problem Statement
 In real-world applications, GPS trajectories often suffer from low sampling rates, with large and irregular intervals between consecutive GPS points. This sparse characteristic presents significant challenges for their direct use in GPS-based systems. The task of map-constrained trajectory recovery aims to enhance trajectory sampling rates of GPS trajectories, making them more useful for various applications.
