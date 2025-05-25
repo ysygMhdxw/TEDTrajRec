@@ -1,17 +1,26 @@
-## Code for `Learning Spatio-Temporal Dynamics for Trajectory Recovery via Time-Aware Transformer`
+## TedTrajRec
 
-### Data format
+### About
+Source Code for  [Learning Spatio-Temporal Dynamics for Trajectory Recovery via Time-Aware Transformer](https://arxiv.org/abs/2505.13857)
 
-#### OSM map format
+### Problem Statement
+In real-world applications, GPS trajectories often suffer from low sampling rates, with large and irregular intervals between consecutive GPS points. This sparse characteristic presents significant challenges for their direct use in GPS-based systems. The task of map-constrained trajectory recovery aims to enhance trajectory sampling rates of GPS trajectories, making them more useful for various applications.
 
+### Model Architecture
+![Model Architecture](img/model.png)
+
+The architecture of TedTrajRec consists of three main components: Feature Extraction, which involves the proposed PD-GNN for learning spatio-temporal traffic dynamics and a trajectory feature extraction module; Encoder, a time-aware Transformer, namely TedFormer that captures spatio-temporal trajectory dynamics of GPS locations within the attention mechanism; and Auto-Regressive Decoder, a decoder model that employs TedFormer and produces the target trajectory.
+
+## Dataset and Data Format
+
+### Map Data
 Porto OSM Map is publicly available at
 link: https://drive.google.com/drive/folders/11NPioTh20BcGpRMRy1efQk_LsxN3fj4f?usp=sharing
 
 Map from OSM that contains: `edgeOSM.txt nodeOSM.txt wayTypeOSM.txt`. Other map format is preferred and `module/map.py`
 need to be modified.
 
-#### Train data format
-
+### Trajectory Data
 Porto dataset is publicly available at
 link: https://drive.google.com/drive/folders/1QNADHYKQNSo574S04iyOjh4LYySSpC2N?usp=sharing.
 
@@ -43,18 +52,30 @@ Note that:
 * `traj_input.txt` and `traj_output.txt` contain the whole dataset of raw GPS trajectory data and map-matched trajectory
   respectively before beding divided into train, valid, and test dataset.
 
-#### Training and Testing
+## Usage
 
+### Training
 ```
 nohup python -u multi_main.py --city Porto --keep_ratio 0.125 --hid_dim 256 --dis_prob_mask_flag \
     --pro_features_flag --tandem_fea_flag --dgl_time_flg --decay_flag > porto_8.txt &
 ```
 
-#### File information
-
+### Code Structure
 * `module/time_aware_transformer_layer.py`: implement of Time-Aware Transformer.
 * `model.py`: implement of TedTrajRec.
 * `module/graph_func.py`: implement of graph functions.
 * `module/map.py`: implement of map functions, i.e. calculating shortest path and r-tree indexing.
 
-This repository is for submission purposes only. Do not distribute.
+## Citation
+If you find this code useful for your research, please cite our paper:
+```
+@misc{sun2025learningspatiotemporaldynamicstrajectory,
+      title={Learning Spatio-Temporal Dynamics for Trajectory Recovery via Time-Aware Transformer}, 
+      author={Tian Sun and Yuqi Chen and Baihua Zheng and Weiwei Sun},
+      year={2025},
+      eprint={2505.13857},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2505.13857}, 
+}
+```
