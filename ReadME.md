@@ -70,13 +70,14 @@ nohup python -u multi_main.py --city Porto --keep_ratio 0.125 --hid_dim 256 --di
 ## Citation
 If you find this code useful for your research, please cite our paper:
 ```
-@misc{sun2025learningspatiotemporaldynamicstrajectory,
-      title={Learning Spatio-Temporal Dynamics for Trajectory Recovery via Time-Aware Transformer}, 
-      author={Tian Sun and Yuqi Chen and Baihua Zheng and Weiwei Sun},
-      year={2025},
-      eprint={2505.13857},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2505.13857}, 
-}
+@ARTICLE{11034661,
+  author={Sun, Tian and Chen, Yuqi and Zheng, Baihua and Sun, Weiwei},
+  journal={IEEE Transactions on Intelligent Transportation Systems}, 
+  title={Learning Spatio-Temporal Dynamics for Trajectory Recovery via Time-Aware Transformer}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-18},
+  keywords={Trajectory;Roads;Global Positioning System;Transformers;Hidden Markov models;Vehicle dynamics;Feature extraction;Computational modeling;Sun;Attention mechanisms;Trajectory recovery;spatio-temporal data mining;deep learning},
+  doi={10.1109/TITS.2025.3574100}}
 ```
